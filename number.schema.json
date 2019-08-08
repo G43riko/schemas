@@ -1,0 +1,25 @@
+{
+    "$id": "https://g43riko.github.io/schemas/number.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": ""
+        },
+        "active": {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "default": true
+        },
+        "number": {
+            "$id": "#/properties/number",
+            "type": "string",
+            "default": ""
+        }
+    },
+    "required": [
+        "active"
+    ]
+}
