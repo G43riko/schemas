@@ -1,0 +1,26 @@
+{
+    "$id": "https://g43riko.github.io/schemas/email.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": ""
+        },
+        "active": {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "default": true
+        },
+        "email": {
+            "$id": "#/properties/email",
+            "type": "string",
+            "format": "email",
+            "default": ""
+        }
+    },
+    "required": [
+        "active"
+    ]
+}
