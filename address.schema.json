@@ -1,0 +1,40 @@
+{
+    "$id": "https://g43riko.github.io/schemas/address.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": ""
+        },
+        "active": {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "default": true
+        },
+        "country": {
+            "$id": "#/properties/country",
+            "type": "string",
+            "default": ""
+        },
+        "city": {
+            "$id": "#/properties/city",
+            "type": "string",
+            "default": ""
+        },
+        "street": {
+            "$id": "#/properties/street",
+            "type": "string",
+            "default": ""
+        },
+        "streetNumber": {
+            "$id": "#/properties/streetNumber",
+            "type": "string",
+            "default": ""
+        }
+    },
+    "required": [
+        "active"
+    ]
+}
