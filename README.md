@@ -1,4 +1,4 @@
-# schemas
+# Schemas
 
 | Name          |Link |
 | ------------- |:-------------:|
