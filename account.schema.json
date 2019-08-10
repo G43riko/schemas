@@ -1,0 +1,52 @@
+{
+    "$id": "https://g43riko.github.io/schemas/account.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": ""
+        },
+        "active": {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "default": true
+        },
+        "type": {
+            "$id": "#/properties/type",
+            "type": "string",
+            "enum": [
+                "",
+                "FACEBOOK",
+                "GOOGLEPLUS",
+                "SKYPE",
+                "LINKEDIN",
+                "TWITTER",
+                "YOUTUBE",
+                "INSTAGRAM",
+                "WEBSITE",
+                "GITHUB"
+            ]
+        },
+        "link": {
+            "$id": "#/properties/link",
+            "type": "string",
+            "default": ""
+        },
+        "accountId": {
+            "$id": "#/properties/accountId",
+            "type": "string",
+            "default": ""
+        },
+        "userName": {
+            "$id": "#/properties/userName",
+            "type": "string",
+            "default": ""
+        }
+    },
+    "required": [
+        "active",
+        "type"
+    ]
+}

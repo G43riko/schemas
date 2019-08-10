@@ -1,0 +1,9 @@
+{
+    "$id": "https://g43riko.github.io/schemas/restaurants.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "description": "List of restaurants",
+    "type": "array",
+    "items": {
+        "$ref": "https://g43riko.github.io/schemas/restaurant.schema.json"
+    }
+}

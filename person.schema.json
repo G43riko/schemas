@@ -1,0 +1,86 @@
+{
+    "$id": "https://g43riko.github.io/schemas/person.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string"
+        },
+        "active": {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "default": true
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "description": "Persons first name",
+            "default": ""
+        },
+        "surname": {
+            "$id": "#/properties/active",
+            "type": "string",
+            "description": "Persons second name",
+            "default": ""
+        },
+        "nick": {
+            "$id": "#/properties/nick",
+            "type": "string",
+            "description": "Persons nick",
+            "default": ""
+        },
+        "gender": {
+            "$id": "#/properties/gender",
+            "type": "string",
+            "enum": [
+                "MALE",
+                "FEMALE",
+                ""
+            ],
+            "description": "Persons gender",
+            "default": ""
+        },
+        "knowFrom": {
+            "$id": "#/properties/knowFrom",
+            "type": "string",
+            "default": ""
+        },
+        "origin": {
+            "$id": "#/properties/origin",
+            "type": "string",
+            "default": ""
+        },
+        "birthday": {
+            "$id": "#/properties/birthday",
+            "type": "string",
+            "format": "date",
+            "default": ""
+        },
+        "address": {
+            "$ref": "https://g43riko.github.io/schemas/address.schema.json"
+        },
+        "emails": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/email.schema.json"
+            }
+        },
+        "numbers": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/number.schema.json"
+            }
+        },
+        "accounts": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/account.schema.json"
+            }
+        }
+    },
+    "required": [
+        "active",
+        "gender"
+    ]
+}

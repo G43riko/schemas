@@ -1,0 +1,57 @@
+{
+    "$id": "https://g43riko.github.io/schemas/maker.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": ""
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "default": ""
+        },
+        "birthday": {
+            "$id": "#/properties/birthday",
+            "type": "string",
+            "format": "date",
+            "default": ""
+        },
+        "imdbId": {
+            "$id": "#/properties/imdbId",
+            "type": "string",
+            "default": ""
+        },
+        "csfdId": {
+            "$id": "#/properties/csfdId",
+            "type": "string",
+            "pattern": "^([0-9]*)$",
+            "default": ""
+        },
+        "movieDbId": {
+            "$id": "#/properties/movieDbId",
+            "type": "string",
+            "default": ""
+        },
+        "role": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "",
+                    "ACTOR",
+                    "DIRECTOR"
+                ]
+            }
+        },
+        "avatars": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        }
+    }
+}

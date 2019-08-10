@@ -1,0 +1,137 @@
+{
+    "$id": "https://g43riko.github.io/schemas/movie.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "description": "Movie detail schema",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": ""
+        },
+        "imdbId": {
+            "$id": "#/properties/imdbId",
+            "type": "string",
+            "default": ""
+        },
+        "csfdId": {
+            "$id": "#/properties/csfdId",
+            "type": "string",
+            "default": ""
+        },
+        "movieDbId": {
+            "$id": "#/properties/movieDbId",
+            "type": "string",
+            "default": ""
+        },
+        "csfdRelated": {
+            "$id": "#/properties/csfdRelated",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "csfdSimilar": {
+            "$id": "#/properties/csfdSimilar",
+            "type": "array",
+            "pattern": "^([0-9]*)$",
+            "items": {
+                "type": "string"
+            }
+        },
+        "title": {
+            "$id": "#/properties/title",
+            "type": "string",
+            "default": ""
+        },
+        "titleSk": {
+            "$id": "#/properties/titleSk",
+            "type": "string",
+            "default": ""
+        },
+        "rating": {
+            "$id": "#/properties/rating",
+            "type": "number",
+            "description": "Movie rating in percentages",
+            "default": "",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "content": {
+            "$id": "#/properties/content",
+            "type": "string",
+            "default": ""
+        },
+        "saw": {
+            "$id": "#/properties/saw",
+            "type": "boolean",
+            "default": false
+        },
+        "wantSee": {
+            "$id": "#/properties/wantSee",
+            "type": "boolean",
+            "default": false
+        },
+        "duration": {
+            "$id": "#/properties/duration",
+            "type": "number",
+            "default": 0
+        },
+        "year": {
+            "$id": "#/properties/year",
+            "type": "string",
+            "format": "year",
+            "description": "Movie duration in minutes",
+            "minimum": 0,
+            "default": ""
+        },
+        "classification":{
+            "$id": "#/properties/classification",
+            "type": "string",
+            "default": ""
+        },
+        "countries":{
+            "$id": "#/properties/countries",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "posters":{
+            "$id": "#/properties/posters",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "makers":{
+            "$id": "#/properties/makers",
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/maker.schema.json"
+            }
+        },
+        "tags": {
+            "$id": "#/properties/tags",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "nameSk": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "csfdId": {
+                        "type": "string",
+                        "default": ""
+                    }
+                }
+            }
+        }
+    }
+}

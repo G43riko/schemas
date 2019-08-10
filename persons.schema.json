@@ -1,0 +1,9 @@
+{
+    "$id": "https://g43riko.github.io/schemas/persons.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "description": "List of person details",
+    "type": "array",
+    "items": {
+        "$ref": "https://g43riko.github.io/schemas/person.schema.json"
+    }
+}

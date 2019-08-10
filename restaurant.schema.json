@@ -1,0 +1,253 @@
+{
+    "$id": "https://g43riko.github.io/schemas/restaurant.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "required": [
+        "_id",
+        "key",
+        "visible"
+    ],
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string",
+            "default": ""
+        },
+        "key": {
+            "$id": "#/properties/key",
+            "type": "string",
+            "default": "",
+            "description": "default value default: (zomatoName || bistroname || niecoPodZubName).toCamelCase"
+        },
+        "visible": {
+            "$id": "#/properties/visible",
+            "type": "boolean",
+            "default": true
+        },
+        "googleMapsId": {
+            "$id": "#/properties/googleMapsId",
+            "type": "string",
+            "default": ""
+        },
+        "zomatoId": {
+            "$id": "#/properties/zomatoId",
+            "type": "string",
+            "default": ""
+        },
+        "zomatoName": {
+            "$id": "#/properties/zomatoName",
+            "type": "string",
+            "default": ""
+        },
+        "zomatoImg": {
+            "$id": "#/properties/zomatoImg",
+            "type": "string",
+            "default": ""
+        },
+        "zomatoLink": {
+            "$id": "#/properties/zomatoLink",
+            "type": "string",
+            "default": ""
+        },
+        "zomatoVotes": {
+            "$id": "#/properties/zomatoVotes",
+            "type": "number",
+            "default": 0
+        },
+        "zomatoRating": {
+            "$id": "#/properties/zomatoRating",
+            "type": "number",
+            "default": 0
+        },
+        "subZone": {
+            "$id": "#/properties/subZone",
+            "type": "string",
+            "default": "",
+            "examples": ["Petržalka", "Staré Mesto"]
+        },
+        "zomatoPrice": {
+            "$id": "#/properties/zomatoPrice",
+            "type": "number",
+            "default": "",
+            "description": "price for 2 in euros"
+        },
+        "address": {
+            "$id": "#/properties/address",
+            "type": "object",
+            "properties":  {
+                "address": {
+                    "$id": "#/properties/address",
+                    "type": "string",
+                    "default": "",
+                    "description": "raw address"
+                },
+                "country": {
+                    "$id": "#/properties/country",
+                    "type": "string",
+                    "default": ""
+                },
+                "city": {
+                    "$id": "#/properties/city",
+                    "type": "string",
+                    "default": ""
+                },
+                "street": {
+                    "$id": "#/properties/street",
+                    "type": "string",
+                    "default": ""
+                },
+                "streetNumber": {
+                    "$id": "#/properties/streetNumber",
+                    "type": "string",
+                    "default": ""
+                },
+                "zipCode": {
+                    "$id": "#/properties/zipCode",
+                    "type": "string",
+                    "default": ""
+                },
+                "latitude": {
+                    "$id": "#/properties/latitude",
+                    "type": "number",
+                    "default": 0,
+                    "minimum": -90,
+                    "maximum": 90
+                },
+                "longitude": {
+                    "$id": "#/properties/longitude",
+                    "type": "number",
+                    "default": 0,
+                    "minimum": -180,
+                    "maximum": 180
+                }
+            }
+        },
+        "onlineDelivery": {
+            "$id": "#/properties/onlineDelivery",
+            "type": "boolean",
+            "default": false
+        },
+        "tableBooking": {
+            "$id": "#/properties/tableBooking",
+            "type": "boolean",
+            "default": false
+        },
+        "phoneNumber": {
+            "$id": "#/properties/phoneNumber",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "default": [],
+            "description": "list of phone numbers in +421 9YYXXXXXX format"
+        },
+        "timing": {
+            "$id": "#/properties/timing",
+            "anyOf": [
+                {
+                    "type": "string",
+                    "description": "opening hours in raw format"
+                },
+                {
+                    "type": "object",
+                    "propertyNames": {
+                        "pattern": "(MON|TUE|WEN|THU|FRI|SAT|SUN)"
+                    },
+                    "patternProperties": {
+                        "(MON|TUE|WEN|THU|FRI|SAT|SUN)": {
+                            "$ref": "#/definitions/openingHour"
+                        }
+                    }
+                }
+            ]
+        },
+        "menuLink": {
+            "$id": "#/properties/menuLink",
+            "type": "string",
+            "default": "",
+            "description": "link to page where is restaurant daily menu"
+        },
+
+        "email": {
+            "$id": "#/properties/email",
+            "type": "string",
+            "default": "",
+            "format": "email"
+        },
+
+        "bistroName": {
+            "$id": "#/properties/bistroName",
+            "type": "string",
+            "default": ""
+        },
+        "bistroImg": {
+            "$id": "#/properties/bistroImg",
+            "type": "string",
+            "default": ""
+        },
+        "bistroLink": {
+            "$id": "#/properties/bistroLink",
+            "type": "string",
+            "default": ""
+        },
+        "bistroVotes": {
+            "$id": "#/properties/bistroVotes",
+            "type": "number",
+            "default": 0
+        },
+        "bistroRating": {
+            "$id": "#/properties/bistroRating",
+            "type": "number",
+            "default": 0
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "default": "",
+            "description": "description of restaurant from bistro"
+        },
+        "logo": {
+            "$id": "#/properties/logo",
+            "type": "string",
+            "default": ""
+        },
+        "niecoPodZubName": {
+            "$id": "#/properties/niecoPodZubName",
+            "type": "string",
+            "default": ""
+        },
+        "niecoPodZubImg": {
+            "$id": "#/properties/niecoPodZubImg",
+            "type": "string",
+            "default": ""
+        },
+        "niecoPodZubLink": {
+            "$id": "#/properties/niecoPodZubLink",
+            "type": "string",
+            "default": ""
+        }
+    },
+    "definitions": {
+        "openingHour": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "description": "opening hour in day in raw format"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "from": {
+                            "type": "string",
+                            "description": "time in HH:MM format"
+                        },
+                        "to": {
+                            "type": "string",
+                            "description": "time in HH:MM format"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

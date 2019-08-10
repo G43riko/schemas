@@ -1,0 +1,9 @@
+{
+    "$id": "https://g43riko.github.io/schemas/movies.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "description": "List of movie details",
+    "type": "array",
+    "items": {
+        "$ref": "https://g43riko.github.io/schemas/movie.schema.json"
+    }
+}
