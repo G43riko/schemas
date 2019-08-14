@@ -8,10 +8,17 @@
             "type": "string",
             "default": ""
         },
+        "address": {
+            "$id": "#/properties/address",
+            "type": "string",
+            "default": "",
+            "description": "raw address"
+        },
         "active": {
             "$id": "#/properties/active",
             "type": "boolean",
-            "default": true
+            "default": true,
+            "description": "flag if address is active or not"
         },
         "country": {
             "$id": "#/properties/country",
@@ -32,6 +39,25 @@
             "$id": "#/properties/streetNumber",
             "type": "string",
             "default": ""
+        },
+        "zipCode": {
+            "$id": "#/properties/zipCode",
+            "type": "string",
+            "default": ""
+        },
+        "latitude": {
+            "$id": "#/properties/latitude",
+            "type": "number",
+            "default": 0,
+            "minimum": -90,
+            "maximum": 90
+        },
+        "longitude": {
+            "$id": "#/properties/longitude",
+            "type": "number",
+            "default": 0,
+            "minimum": -180,
+            "maximum": 180
         }
     },
     "required": [
