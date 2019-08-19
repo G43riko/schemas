@@ -120,6 +120,13 @@
             "description": "link to page where is restaurant daily menu"
         },
 
+        "restauracieSme": {
+            "$id": "#/properties/restauracieSme",
+            "type": "string",
+            "default": "",
+            "description": "",
+            "pattern": "^(https:\/\/restauracie\.sme\.sk\/restauracia\/).*(\/denne-menu)$"
+        },
         "email": {
             "$id": "#/properties/email",
             "type": "string",
