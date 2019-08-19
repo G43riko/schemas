@@ -125,7 +125,7 @@
             "type": "string",
             "default": "",
             "description": "",
-            "pattern": "^(https:\/\/restauracie\.sme\.sk\/restauracia\/).*(\/denne-menu)$"
+            "pattern": "^(https:\/\/restauracie\\.sme\\.sk\/restauracia\/).*(\/denne-menu)$"
         },
         "email": {
             "$id": "#/properties/email",
