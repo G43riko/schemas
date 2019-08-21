@@ -120,8 +120,8 @@
             "description": "link to page where is restaurant daily menu"
         },
 
-        "restauracieSme": {
-            "$id": "#/properties/restauracieSme",
+        "restauracieSmeLink": {
+            "$id": "#/properties/restauracieSmeLink",
             "type": "string",
             "default": "",
             "description": "",
