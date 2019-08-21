@@ -24,6 +24,11 @@
             "type": "boolean",
             "default": true
         },
+        "homepage": {
+            "$id": "#/properties/homepage",
+            "type": "string",
+            "default": ""
+        },
         "googleMapsId": {
             "$id": "#/properties/googleMapsId",
             "type": "string",
