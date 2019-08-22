@@ -1,0 +1,73 @@
+{
+    "$id": "https://g43riko.github.io/schemas/food.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "meat": {
+            "$id": "#/properties/meat",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "cheese": {
+            "$id": "#/properties/cheese",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "sae_food": {
+            "$id": "#/properties/sae_food",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "vegetable": {
+            "$id": "#/properties/vegetable",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "pizza": {
+            "$id": "#/properties/pizza",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "pasta": {
+            "$id": "#/properties/pasta",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "sweet": {
+            "$id": "#/properties/sweet",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "asia": {
+            "$id": "#/properties/asia",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "arab": {
+            "$id": "#/properties/arab",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "active"
+    ]
+}
