@@ -27,6 +27,7 @@
         "homepage": {
             "$id": "#/properties/homepage",
             "type": "string",
+            "format": "uri",
             "default": ""
         },
         "googleMapsId": {
@@ -47,11 +48,13 @@
         "zomatoImg": {
             "$id": "#/properties/zomatoImg",
             "type": "string",
+            "format": "uri",
             "default": ""
         },
         "zomatoLink": {
             "$id": "#/properties/zomatoLink",
             "type": "string",
+            "format": "uri",
             "default": ""
         },
         "zomatoVotes": {
@@ -121,6 +124,7 @@
         "menuLink": {
             "$id": "#/properties/menuLink",
             "type": "string",
+            "format": "uri",
             "default": "",
             "description": "link to page where is restaurant daily menu"
         },
@@ -147,11 +151,13 @@
         "bistroImg": {
             "$id": "#/properties/bistroImg",
             "type": "string",
+            "format": "uri",
             "default": ""
         },
         "bistroLink": {
             "$id": "#/properties/bistroLink",
             "type": "string",
+            "format": "uri",
             "default": ""
         },
         "bistroVotes": {
@@ -173,6 +179,7 @@
         "logo": {
             "$id": "#/properties/logo",
             "type": "string",
+            "format": "uri",
             "default": ""
         },
         "niecoPodZubName": {
@@ -183,11 +190,13 @@
         "niecoPodZubImg": {
             "$id": "#/properties/niecoPodZubImg",
             "type": "string",
+            "format": "uri",
             "default": ""
         },
         "niecoPodZubLink": {
             "$id": "#/properties/niecoPodZubLink",
             "type": "string",
+            "format": "uri",
             "default": ""
         }
     },
