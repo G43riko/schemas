@@ -1,5 +1,5 @@
 {
-    "$id": "https://g43riko.github.io/schemas/person.schema.json",
+    "$id": "https://g43riko.github.io/schemas/simple-person.schema.json",
     "$schema": "https://g43riko.github.io/schemas/schema.json",
     "type": "object",
     "properties": {
