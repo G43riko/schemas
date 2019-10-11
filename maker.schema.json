@@ -11,6 +11,17 @@
         "name": {
             "$id": "#/properties/name",
             "type": "string",
+            "description": "Raw name. Typically given name and family name",
+            "default": ""
+        },
+        "givenName": {
+            "$id": "#/properties/givenName",
+            "type": "string",
+            "default": ""
+        },
+        "familyName": {
+            "$id": "#/properties/familyName",
+            "type": "string",
             "default": ""
         },
         "birthday": {
