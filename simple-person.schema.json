@@ -1,0 +1,47 @@
+{
+    "$id": "https://g43riko.github.io/schemas/person.schema.json",
+    "$schema": "https://g43riko.github.io/schemas/schema.json",
+    "type": "object",
+    "properties": {
+        "_id": {
+            "$id": "#/properties/_id",
+            "type": "string"
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "description": "Raw person name (typically given name and family name)",
+            "default": ""
+        },
+        "familyName": {
+            "$id": "#/properties/familyName",
+            "type": "string",
+            "description": "Persons family name (surname)",
+            "default": ""
+        },
+        "givenName": {
+            "$id": "#/properties/givenName",
+            "type": "string",
+            "description": "Persons given name (first name)",
+            "default": ""
+        },
+        "gender": {
+            "$id": "#/properties/gender",
+            "type": "string",
+            "enum": [
+                "MALE",
+                "FEMALE",
+                ""
+            ],
+            "description": "Persons gender",
+            "default": ""
+        },
+        "birthday": {
+            "$id": "#/properties/birthday",
+            "type": "string",
+            "format": "date",
+            "description": "YYYY/MM/DD",
+            "default": ""
+        }
+    }
+}
