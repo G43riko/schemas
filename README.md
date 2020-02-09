@@ -1,6 +1,6 @@
 # Schemas
 
-actual schemas:
+## Currently supported schemas
 
 | Name          |Link |
 | ------------- |:-------------:|
