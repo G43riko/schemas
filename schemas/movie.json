@@ -1,0 +1,153 @@
+{
+    "type": "object",
+    "properties": {
+        "year": {
+            "type": "number"
+        },
+        "id": {
+            "type": "string"
+        },
+        "titles": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/lang-map.json"
+        },
+        "content": {
+            "type": "string"
+        },
+        "contents": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/lang-map.json"
+        },
+        "title": {
+            "type": "string"
+        },
+        "originalTitle": {
+            "type": "string"
+        },
+        "genres": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "duration": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "description": "Duration in minutes"
+        },
+        "ratings": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "description": "Ratings in different sources in percentage",
+            "default": {}
+        },
+        "userRatings": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "description": "User ratings in percentage",
+            "default": {}
+        },
+        "calculatedDuratio": {
+            "type": "object",
+            "properties": {
+                "calculationDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "value": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "description": "Average duration calculated based on durations"
+                }
+            },
+            "required": [
+                "calculationDate",
+                "value"
+            ],
+            "additionalProperties": false
+        },
+        "classification": {
+            "type": "string",
+            "description": "PEGI classification"
+        },
+        "calculatedRating": {
+            "type": "object",
+            "properties": {
+                "calculationDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "value": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "Average rating calculated based on ratings"
+                }
+            },
+            "required": [
+                "calculationDate",
+                "value"
+            ],
+            "additionalProperties": false
+        },
+        "durations": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "integer",
+                "exclusiveMinimum": 0
+            },
+            "description": "Durations from different sources",
+            "default": {}
+        },
+        "countries": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "posters": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            },
+            "default": []
+        },
+        "similar": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/id"
+            },
+            "default": []
+        },
+        "related": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/id"
+            },
+            "default": []
+        }
+    },
+    "required": [
+        "year",
+        "id",
+        "titles",
+        "content",
+        "contents",
+        "title",
+        "genres",
+        "duration",
+        "calculatedDuratio",
+        "calculatedRating",
+        "countries"
+    ],
+    "additionalProperties": false,
+    "title": "movie",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}
