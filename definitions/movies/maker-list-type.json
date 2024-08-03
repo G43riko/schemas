@@ -1,0 +1,9 @@
+{
+    "type": "string",
+    "enum": [
+        "FAVOURITES",
+        "CUSTOM"
+    ],
+    "title": "maker-list-type",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -2,9 +2,13 @@
     "type": "object",
     "properties": {
         "id": {
-            "type": "string"
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-id.json"
         },
         "externalIds": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/external-ids.json",
+            "default": {}
+        },
+        "bibliography": {
             "type": "object",
             "additionalProperties": {
                 "type": "string"
@@ -12,6 +16,18 @@
         },
         "fullName": {
             "type": "string"
+        },
+        "firstName": {
+            "type": "string"
+        },
+        "lastName": {
+            "type": "string"
+        },
+        "birthplace": {
+            "type": "string"
+        },
+        "fromCountry": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/country.json"
         },
         "birthday": {
             "type": "string",
@@ -22,15 +38,15 @@
             "items": {
                 "type": "string",
                 "format": "uri"
-            }
+            },
+            "default": []
         }
     },
     "required": [
         "id",
-        "externalIds",
         "fullName",
-        "birthday",
-        "photos"
+        "firstName",
+        "lastName"
     ],
     "additionalProperties": false,
     "title": "maker",

@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "creationDate": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "movies": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie.json"
+            }
+        },
+        "name": {
+            "type": "string"
+        },
+        "ownerId": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/users/user-id.json"
+        },
+        "public": {
+            "type": "boolean"
+        },
+        "type": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-list-type.json"
+        }
+    },
+    "required": [
+        "creationDate",
+        "movies",
+        "name",
+        "ownerId",
+        "public",
+        "type"
+    ],
+    "additionalProperties": false,
+    "title": "movie-list",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

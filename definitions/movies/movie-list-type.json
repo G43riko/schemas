@@ -1,0 +1,10 @@
+{
+    "type": "string",
+    "enum": [
+        "WATCHED",
+        "FAVOURITES",
+        "CUSTOM"
+    ],
+    "title": "movie-list-type",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

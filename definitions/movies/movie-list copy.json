@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "creationDate": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "makers": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker.json"
+            }
+        },
+        "name": {
+            "type": "string"
+        },
+        "ownerId": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/users/user-id.json"
+        },
+        "public": {
+            "type": "boolean"
+        },
+        "type": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-list-type.json"
+        }
+    },
+    "required": [
+        "creationDate",
+        "makers",
+        "name",
+        "ownerId",
+        "public",
+        "type"
+    ],
+    "additionalProperties": false,
+    "title": "movie-list copy",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

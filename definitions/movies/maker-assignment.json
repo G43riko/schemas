@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "makerId": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-id.json"
+        },
+        "characterName": {
+            "type": "string"
+        },
+        "role": {
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-role.json"
+        }
+    },
+    "required": [
+        "makerId",
+        "role"
+    ],
+    "additionalProperties": false,
+    "title": "maker-assignment",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

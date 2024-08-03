@@ -5,28 +5,25 @@
             "type": "number"
         },
         "id": {
-            "type": "string"
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-id.json"
         },
         "titles": {
             "type": "object",
             "additionalProperties": {
                 "type": "string"
-            }
-        },
-        "content": {
-            "type": "string"
+            },
+            "default": {}
         },
         "contents": {
             "type": "object",
             "additionalProperties": {
                 "type": "string"
-            }
+            },
+            "default": {}
         },
         "externalIds": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
-            }
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/external-ids.json",
+            "default": {}
         },
         "title": {
             "type": "string"
@@ -118,8 +115,9 @@
         "countries": {
             "type": "array",
             "items": {
-                "type": "string"
-            }
+                "$ref": "https://g43riko.github.io/schemas/definitions/country.json"
+            },
+            "default": []
         },
         "posters": {
             "type": "array",
@@ -132,36 +130,30 @@
         "similar": {
             "type": "array",
             "items": {
-                "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/id"
+                "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-id.json"
             },
             "default": []
         },
         "related": {
             "type": "array",
             "items": {
-                "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/id"
+                "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-id.json"
             },
             "default": []
         },
         "makers": {
             "type": "array",
             "items": {
-                "$ref": "https://g43riko.github.io/schemas/definitions/maker.json"
-            }
+                "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-assignment.json"
+            },
+            "default": []
         }
     },
     "required": [
-        "year",
         "id",
-        "titles",
-        "content",
-        "contents",
-        "externalIds",
         "title",
         "genres",
-        "duration",
-        "countries",
-        "makers"
+        "duration"
     ],
     "additionalProperties": false,
     "title": "movie",
