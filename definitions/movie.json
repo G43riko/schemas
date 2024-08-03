@@ -8,13 +8,25 @@
             "type": "string"
         },
         "titles": {
-            "$ref": "https://g43riko.github.io/schemas/definitions/lang-map.json"
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
         },
         "content": {
             "type": "string"
         },
         "contents": {
-            "$ref": "https://g43riko.github.io/schemas/definitions/lang-map.json"
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "externalIds": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
         },
         "title": {
             "type": "string"
@@ -46,14 +58,12 @@
         "userRatings": {
             "type": "object",
             "additionalProperties": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 100
+                "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/ratings/additionalProperties"
             },
             "description": "User ratings in percentage",
             "default": {}
         },
-        "calculatedDuratio": {
+        "calculatedDuration": {
             "type": "object",
             "properties": {
                 "calculationDate": {
@@ -132,6 +142,12 @@
                 "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/id"
             },
             "default": []
+        },
+        "makers": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/definitions/maker.json"
+            }
         }
     },
     "required": [
@@ -140,12 +156,12 @@
         "titles",
         "content",
         "contents",
+        "externalIds",
         "title",
         "genres",
         "duration",
-        "calculatedDuratio",
-        "calculatedRating",
-        "countries"
+        "countries",
+        "makers"
     ],
     "additionalProperties": false,
     "title": "movie",

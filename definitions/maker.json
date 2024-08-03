@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "externalIds": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "fullName": {
+            "type": "string"
+        },
+        "birthday": {
+            "type": "string",
+            "description": "Year of full birdhday in format YYYY-MM-DD"
+        },
+        "photos": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        }
+    },
+    "required": [
+        "id",
+        "externalIds",
+        "fullName",
+        "birthday",
+        "photos"
+    ],
+    "additionalProperties": false,
+    "title": "maker",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

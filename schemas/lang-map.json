@@ -1,8 +1,0 @@
-{
-    "type": "object",
-    "additionalProperties": {
-        "type": "string"
-    },
-    "title": "lang-map",
-    "$schema": "http://json-schema.org/draft-07/schema#"
-}
