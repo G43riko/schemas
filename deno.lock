@@ -2,9 +2,27 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "npm:@asteasolutions/zod-to-openapi": "npm:@asteasolutions/zod-to-openapi@7.1.1_zod@3.23.8",
       "npm:zod-to-json-schema": "npm:zod-to-json-schema@3.23.2_zod@3.23.8"
     },
     "npm": {
+      "@asteasolutions/zod-to-openapi@7.1.1_zod@3.23.8": {
+        "integrity": "sha512-lF0d1gAc0lYLO9/BAGivwTwE2Sh9h6CHuDcbk5KnGBfIuAsAkDC+Fdat4dkQY3CS/zUWKHRmFEma0B7X132Ymw==",
+        "dependencies": {
+          "openapi3-ts": "openapi3-ts@4.3.3",
+          "zod": "zod@3.23.8"
+        }
+      },
+      "openapi3-ts@4.3.3": {
+        "integrity": "sha512-LKkzBGJcZ6wdvkKGMoSvpK+0cbN5Xc3XuYkJskO+vjEQWJgs1kgtyUk0pjf8KwPuysv323Er62F5P17XQl96Qg==",
+        "dependencies": {
+          "yaml": "yaml@2.5.0"
+        }
+      },
+      "yaml@2.5.0": {
+        "integrity": "sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==",
+        "dependencies": {}
+      },
       "zod-to-json-schema@3.23.2_zod@3.23.8": {
         "integrity": "sha512-uSt90Gzc/tUfyNqxnjlfBs8W6WSGpNBv0rVsNxP/BVSMHMKGdthPYff4xtCHYloJGM0CFxFsb3NbC0eqPhfImw==",
         "dependencies": {

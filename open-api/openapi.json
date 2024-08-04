@@ -1,0 +1,710 @@
+{
+    "components": {
+        "schemas": {
+            "country": {
+                "type": "string"
+            },
+            "external-ids": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            },
+            "maker-assignment": {
+                "type": "object",
+                "properties": {
+                    "makerId": {
+                        "type": "string"
+                    },
+                    "characterName": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "makerId",
+                    "role"
+                ]
+            },
+            "maker-id": {
+                "type": "string"
+            },
+            "maker-list-type": {
+                "type": "string",
+                "enum": [
+                    "FAVOURITES",
+                    "CUSTOM"
+                ]
+            },
+            "maker-list": {
+                "type": "object",
+                "properties": {
+                    "creationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "makers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "externalIds": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "default": {}
+                                },
+                                "bibliography": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "fullName": {
+                                    "type": "string"
+                                },
+                                "firstName": {
+                                    "type": "string"
+                                },
+                                "lastName": {
+                                    "type": "string"
+                                },
+                                "birthplace": {
+                                    "type": "string"
+                                },
+                                "fromCountry": {
+                                    "type": "string"
+                                },
+                                "birthday": {
+                                    "type": "string",
+                                    "description": "Year of full birdhday in format YYYY-MM-DD"
+                                },
+                                "photos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    "default": []
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "fullName",
+                                "firstName",
+                                "lastName"
+                            ]
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "type": "string"
+                    },
+                    "public": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "FAVOURITES",
+                            "CUSTOM"
+                        ]
+                    }
+                },
+                "required": [
+                    "creationDate",
+                    "makers",
+                    "name",
+                    "ownerId",
+                    "public",
+                    "type"
+                ]
+            },
+            "maker-role": {
+                "type": "string"
+            },
+            "maker": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "externalIds": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "default": {}
+                    },
+                    "bibliography": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "birthplace": {
+                        "type": "string"
+                    },
+                    "fromCountry": {
+                        "type": "string"
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "description": "Year of full birdhday in format YYYY-MM-DD"
+                    },
+                    "photos": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "default": []
+                    }
+                },
+                "required": [
+                    "id",
+                    "fullName",
+                    "firstName",
+                    "lastName"
+                ]
+            },
+            "movie-id": {
+                "type": "string"
+            },
+            "movie-list copy": {
+                "type": "object",
+                "properties": {
+                    "creationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "makers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "externalIds": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "default": {}
+                                },
+                                "bibliography": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "fullName": {
+                                    "type": "string"
+                                },
+                                "firstName": {
+                                    "type": "string"
+                                },
+                                "lastName": {
+                                    "type": "string"
+                                },
+                                "birthplace": {
+                                    "type": "string"
+                                },
+                                "fromCountry": {
+                                    "type": "string"
+                                },
+                                "birthday": {
+                                    "type": "string",
+                                    "description": "Year of full birdhday in format YYYY-MM-DD"
+                                },
+                                "photos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    "default": []
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "fullName",
+                                "firstName",
+                                "lastName"
+                            ]
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "type": "string"
+                    },
+                    "public": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "FAVOURITES",
+                            "CUSTOM"
+                        ]
+                    }
+                },
+                "required": [
+                    "creationDate",
+                    "makers",
+                    "name",
+                    "ownerId",
+                    "public",
+                    "type"
+                ]
+            },
+            "movie-list-type": {
+                "type": "string",
+                "enum": [
+                    "WATCHED",
+                    "FAVOURITES",
+                    "CUSTOM"
+                ]
+            },
+            "movie-list": {
+                "type": "object",
+                "properties": {
+                    "creationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "movies": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "year": {
+                                    "type": "number"
+                                },
+                                "id": {
+                                    "type": "string"
+                                },
+                                "titles": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "default": {}
+                                },
+                                "contents": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "default": {}
+                                },
+                                "externalIds": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "default": {}
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "originalTitle": {
+                                    "type": "string"
+                                },
+                                "genres": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "duration": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "exclusiveMinimum": true,
+                                    "description": "Duration in minutes"
+                                },
+                                "ratings": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 100
+                                    },
+                                    "default": {},
+                                    "description": "Ratings in different sources in percentage"
+                                },
+                                "userRatings": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 100
+                                    },
+                                    "default": {},
+                                    "description": "User ratings in percentage"
+                                },
+                                "calculatedDuration": {
+                                    "type": "object",
+                                    "properties": {
+                                        "calculationDate": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "value": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "exclusiveMinimum": true,
+                                            "description": "Average duration calculated based on durations"
+                                        }
+                                    },
+                                    "required": [
+                                        "calculationDate",
+                                        "value"
+                                    ]
+                                },
+                                "classification": {
+                                    "type": "string",
+                                    "description": "PEGI classification"
+                                },
+                                "calculatedRating": {
+                                    "type": "object",
+                                    "properties": {
+                                        "calculationDate": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "value": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "maximum": 100,
+                                            "description": "Average rating calculated based on ratings"
+                                        }
+                                    },
+                                    "required": [
+                                        "calculationDate",
+                                        "value"
+                                    ]
+                                },
+                                "durations": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "exclusiveMinimum": true
+                                    },
+                                    "default": {},
+                                    "description": "Durations from different sources"
+                                },
+                                "countries": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "default": []
+                                },
+                                "posters": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    "default": []
+                                },
+                                "similar": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "default": []
+                                },
+                                "related": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "default": []
+                                },
+                                "makers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "makerId": {
+                                                "type": "string"
+                                            },
+                                            "characterName": {
+                                                "type": "string"
+                                            },
+                                            "role": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "makerId",
+                                            "role"
+                                        ]
+                                    },
+                                    "default": []
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "title",
+                                "genres",
+                                "duration"
+                            ]
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "ownerId": {
+                        "type": "string"
+                    },
+                    "public": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "WATCHED",
+                            "FAVOURITES",
+                            "CUSTOM"
+                        ]
+                    }
+                },
+                "required": [
+                    "creationDate",
+                    "movies",
+                    "name",
+                    "ownerId",
+                    "public",
+                    "type"
+                ]
+            },
+            "movie": {
+                "type": "object",
+                "properties": {
+                    "year": {
+                        "type": "number"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "titles": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "default": {}
+                    },
+                    "contents": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "default": {}
+                    },
+                    "externalIds": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "default": {}
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "originalTitle": {
+                        "type": "string"
+                    },
+                    "genres": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "duration": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "exclusiveMinimum": true,
+                        "description": "Duration in minutes"
+                    },
+                    "ratings": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "default": {},
+                        "description": "Ratings in different sources in percentage"
+                    },
+                    "userRatings": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "default": {},
+                        "description": "User ratings in percentage"
+                    },
+                    "calculatedDuration": {
+                        "type": "object",
+                        "properties": {
+                            "calculationDate": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "value": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "exclusiveMinimum": true,
+                                "description": "Average duration calculated based on durations"
+                            }
+                        },
+                        "required": [
+                            "calculationDate",
+                            "value"
+                        ]
+                    },
+                    "classification": {
+                        "type": "string",
+                        "description": "PEGI classification"
+                    },
+                    "calculatedRating": {
+                        "type": "object",
+                        "properties": {
+                            "calculationDate": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "value": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 100,
+                                "description": "Average rating calculated based on ratings"
+                            }
+                        },
+                        "required": [
+                            "calculationDate",
+                            "value"
+                        ]
+                    },
+                    "durations": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "exclusiveMinimum": true
+                        },
+                        "default": {},
+                        "description": "Durations from different sources"
+                    },
+                    "countries": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": []
+                    },
+                    "posters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "default": []
+                    },
+                    "similar": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": []
+                    },
+                    "related": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": []
+                    },
+                    "makers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "makerId": {
+                                    "type": "string"
+                                },
+                                "characterName": {
+                                    "type": "string"
+                                },
+                                "role": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "makerId",
+                                "role"
+                            ]
+                        },
+                        "default": []
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "genres",
+                    "duration"
+                ]
+            },
+            "user-id": {
+                "type": "string"
+            },
+            "user": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "userName": {
+                        "type": "string"
+                    },
+                    "creationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "id",
+                    "userName",
+                    "creationDate"
+                ]
+            }
+        },
+        "parameters": {}
+    }
+}
