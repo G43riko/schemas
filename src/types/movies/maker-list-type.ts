@@ -4,6 +4,6 @@ enum MakerListType {
     FAVOURITES = "FAVOURITES",
     CUSTOM = "CUSTOM",
 }
-const MakerListTypeZ = nativeEnum(MakerListType);
+const MakerListTypeZ = nativeEnum(MakerListType).openapi("MakerListType");
 
 export default MakerListTypeZ;

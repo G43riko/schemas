@@ -1,26 +1,39 @@
 {
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Schemas",
+        "description": "This is the API containing all the schemas"
+    },
     "components": {
         "schemas": {
-            "country": {
+            "Country": {
                 "type": "string"
             },
-            "external-ids": {
+            "ExternalIds": {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
-                }
+                },
+                "default": {}
             },
-            "maker-assignment": {
+            "MakerId": {
+                "type": "string"
+            },
+            "MakerRole": {
+                "type": "string"
+            },
+            "MakerAssignment": {
                 "type": "object",
                 "properties": {
                     "makerId": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/MakerId"
                     },
                     "characterName": {
                         "type": "string"
                     },
                     "role": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/MakerRole"
                     }
                 },
                 "required": [
@@ -28,17 +41,17 @@
                     "role"
                 ]
             },
-            "maker-id": {
-                "type": "string"
-            },
-            "maker-list-type": {
+            "MakerListType": {
                 "type": "string",
                 "enum": [
                     "FAVOURITES",
                     "CUSTOM"
                 ]
             },
-            "maker-list": {
+            "UserId": {
+                "type": "string"
+            },
+            "MakerList": {
                 "type": "object",
                 "properties": {
                     "creationDate": {
@@ -51,14 +64,10 @@
                             "type": "object",
                             "properties": {
                                 "id": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/MakerId"
                                 },
                                 "externalIds": {
-                                    "type": "object",
-                                    "additionalProperties": {
-                                        "type": "string"
-                                    },
-                                    "default": {}
+                                    "$ref": "#/components/schemas/ExternalIds"
                                 },
                                 "bibliography": {
                                     "type": "object",
@@ -79,7 +88,7 @@
                                     "type": "string"
                                 },
                                 "fromCountry": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/Country"
                                 },
                                 "birthday": {
                                     "type": "string",
@@ -106,17 +115,13 @@
                         "type": "string"
                     },
                     "ownerId": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/UserId"
                     },
                     "public": {
                         "type": "boolean"
                     },
                     "type": {
-                        "type": "string",
-                        "enum": [
-                            "FAVOURITES",
-                            "CUSTOM"
-                        ]
+                        "$ref": "#/components/schemas/MakerListType"
                     }
                 },
                 "required": [
@@ -128,21 +133,14 @@
                     "type"
                 ]
             },
-            "maker-role": {
-                "type": "string"
-            },
-            "maker": {
+            "Maker": {
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/MakerId"
                     },
                     "externalIds": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        },
-                        "default": {}
+                        "$ref": "#/components/schemas/ExternalIds"
                     },
                     "bibliography": {
                         "type": "object",
@@ -163,7 +161,7 @@
                         "type": "string"
                     },
                     "fromCountry": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/Country"
                     },
                     "birthday": {
                         "type": "string",
@@ -185,100 +183,10 @@
                     "lastName"
                 ]
             },
-            "movie-id": {
+            "MovieId": {
                 "type": "string"
             },
-            "movie-list copy": {
-                "type": "object",
-                "properties": {
-                    "creationDate": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "makers": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "id": {
-                                    "type": "string"
-                                },
-                                "externalIds": {
-                                    "type": "object",
-                                    "additionalProperties": {
-                                        "type": "string"
-                                    },
-                                    "default": {}
-                                },
-                                "bibliography": {
-                                    "type": "object",
-                                    "additionalProperties": {
-                                        "type": "string"
-                                    }
-                                },
-                                "fullName": {
-                                    "type": "string"
-                                },
-                                "firstName": {
-                                    "type": "string"
-                                },
-                                "lastName": {
-                                    "type": "string"
-                                },
-                                "birthplace": {
-                                    "type": "string"
-                                },
-                                "fromCountry": {
-                                    "type": "string"
-                                },
-                                "birthday": {
-                                    "type": "string",
-                                    "description": "Year of full birdhday in format YYYY-MM-DD"
-                                },
-                                "photos": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string",
-                                        "format": "uri"
-                                    },
-                                    "default": []
-                                }
-                            },
-                            "required": [
-                                "id",
-                                "fullName",
-                                "firstName",
-                                "lastName"
-                            ]
-                        }
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "ownerId": {
-                        "type": "string"
-                    },
-                    "public": {
-                        "type": "boolean"
-                    },
-                    "type": {
-                        "type": "string",
-                        "enum": [
-                            "FAVOURITES",
-                            "CUSTOM"
-                        ]
-                    }
-                },
-                "required": [
-                    "creationDate",
-                    "makers",
-                    "name",
-                    "ownerId",
-                    "public",
-                    "type"
-                ]
-            },
-            "movie-list-type": {
+            "MovieListType": {
                 "type": "string",
                 "enum": [
                     "WATCHED",
@@ -286,7 +194,10 @@
                     "CUSTOM"
                 ]
             },
-            "movie-list": {
+            "MovieTag": {
+                "type": "string"
+            },
+            "MovieList": {
                 "type": "object",
                 "properties": {
                     "creationDate": {
@@ -299,10 +210,10 @@
                             "type": "object",
                             "properties": {
                                 "year": {
-                                    "type": "number"
+                                    "type": "integer"
                                 },
                                 "id": {
-                                    "type": "string"
+                                    "$ref": "#/components/schemas/MovieId"
                                 },
                                 "titles": {
                                     "type": "object",
@@ -319,11 +230,7 @@
                                     "default": {}
                                 },
                                 "externalIds": {
-                                    "type": "object",
-                                    "additionalProperties": {
-                                        "type": "string"
-                                    },
-                                    "default": {}
+                                    "$ref": "#/components/schemas/ExternalIds"
                                 },
                                 "title": {
                                     "type": "string"
@@ -418,7 +325,7 @@
                                 "countries": {
                                     "type": "array",
                                     "items": {
-                                        "type": "string"
+                                        "$ref": "#/components/schemas/Country"
                                     },
                                     "default": []
                                 },
@@ -433,36 +340,28 @@
                                 "similar": {
                                     "type": "array",
                                     "items": {
-                                        "type": "string"
+                                        "$ref": "#/components/schemas/MovieId"
                                     },
                                     "default": []
                                 },
                                 "related": {
                                     "type": "array",
                                     "items": {
-                                        "type": "string"
+                                        "$ref": "#/components/schemas/MovieId"
+                                    },
+                                    "default": []
+                                },
+                                "tags": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MovieTag"
                                     },
                                     "default": []
                                 },
                                 "makers": {
                                     "type": "array",
                                     "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "makerId": {
-                                                "type": "string"
-                                            },
-                                            "characterName": {
-                                                "type": "string"
-                                            },
-                                            "role": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "makerId",
-                                            "role"
-                                        ]
+                                        "$ref": "#/components/schemas/MakerAssignment"
                                     },
                                     "default": []
                                 }
@@ -479,18 +378,13 @@
                         "type": "string"
                     },
                     "ownerId": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/UserId"
                     },
                     "public": {
                         "type": "boolean"
                     },
                     "type": {
-                        "type": "string",
-                        "enum": [
-                            "WATCHED",
-                            "FAVOURITES",
-                            "CUSTOM"
-                        ]
+                        "$ref": "#/components/schemas/MovieListType"
                     }
                 },
                 "required": [
@@ -502,14 +396,14 @@
                     "type"
                 ]
             },
-            "movie": {
+            "Movie": {
                 "type": "object",
                 "properties": {
                     "year": {
-                        "type": "number"
+                        "type": "integer"
                     },
                     "id": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/MovieId"
                     },
                     "titles": {
                         "type": "object",
@@ -526,11 +420,7 @@
                         "default": {}
                     },
                     "externalIds": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        },
-                        "default": {}
+                        "$ref": "#/components/schemas/ExternalIds"
                     },
                     "title": {
                         "type": "string"
@@ -625,7 +515,7 @@
                     "countries": {
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "$ref": "#/components/schemas/Country"
                         },
                         "default": []
                     },
@@ -640,36 +530,28 @@
                     "similar": {
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "$ref": "#/components/schemas/MovieId"
                         },
                         "default": []
                     },
                     "related": {
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "$ref": "#/components/schemas/MovieId"
+                        },
+                        "default": []
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MovieTag"
                         },
                         "default": []
                     },
                     "makers": {
                         "type": "array",
                         "items": {
-                            "type": "object",
-                            "properties": {
-                                "makerId": {
-                                    "type": "string"
-                                },
-                                "characterName": {
-                                    "type": "string"
-                                },
-                                "role": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "makerId",
-                                "role"
-                            ]
+                            "$ref": "#/components/schemas/MakerAssignment"
                         },
                         "default": []
                     }
@@ -681,14 +563,11 @@
                     "duration"
                 ]
             },
-            "user-id": {
-                "type": "string"
-            },
-            "user": {
+            "User": {
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "$ref": "#/components/schemas/UserId"
                     },
                     "userName": {
                         "type": "string"
@@ -706,5 +585,6 @@
             }
         },
         "parameters": {}
-    }
+    },
+    "paths": {}
 }

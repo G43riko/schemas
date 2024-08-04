@@ -2,7 +2,7 @@
     "type": "object",
     "properties": {
         "year": {
-            "type": "number"
+            "type": "integer"
         },
         "id": {
             "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-id.json"
@@ -22,8 +22,7 @@
             "default": {}
         },
         "externalIds": {
-            "$ref": "https://g43riko.github.io/schemas/definitions/movies/external-ids.json",
-            "default": {}
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/external-ids.json"
         },
         "title": {
             "type": "string"
@@ -138,6 +137,13 @@
             "type": "array",
             "items": {
                 "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-id.json"
+            },
+            "default": []
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-tag.json"
             },
             "default": []
         },

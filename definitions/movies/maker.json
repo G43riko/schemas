@@ -5,8 +5,7 @@
             "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-id.json"
         },
         "externalIds": {
-            "$ref": "https://g43riko.github.io/schemas/definitions/movies/external-ids.json",
-            "default": {}
+            "$ref": "https://g43riko.github.io/schemas/definitions/movies/external-ids.json"
         },
         "bibliography": {
             "type": "object",

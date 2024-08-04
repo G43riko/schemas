@@ -10,7 +10,7 @@ import MakerId from "./maker-id.ts";
  */
 export const Maker = object({
     id: MakerId,
-    externalIds: ExternalIds.readonly().default({}),
+    externalIds: ExternalIds,
     bibliography: record(string(), string()).optional(),
     fullName: string(),
     firstName: string(),

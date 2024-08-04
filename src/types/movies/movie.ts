@@ -3,7 +3,7 @@ import Country from "../country.ts";
 import MovieId from "./movie-id.ts";
 import MakerAssignment from "./maker-assignment.ts";
 import ExternalIds from "./external-ids.ts";
-
+import MovieTag from "./movie-tag.ts";
 export const MovieRating = number().int().min(0).max(100);
 /**
  * @see https://hackmd.io/LtxhCZgAR92vmgmCceCfnA
@@ -12,11 +12,11 @@ export const MovieRating = number().int().min(0).max(100);
  * This should contains all data saved in server
  */
 export const Movie = object({
-    year: number().optional(),
+    year: number().int().optional(),
     id: MovieId,
     titles: record(string(), string()).readonly().default({}),
     contents: record(string(), string()).readonly().default({}),
-    externalIds: ExternalIds.readonly().default({}),
+    externalIds: ExternalIds,
     title: string(),
     originalTitle: string().optional(),
     genres: array(string()).readonly(),
@@ -37,6 +37,7 @@ export const Movie = object({
     posters: array(string().url()).readonly().default([]),
     similar: array(MovieId).readonly().default([]),
     related: array(MovieId).readonly().default([]),
+    tags: array(MovieTag).readonly().default([]),
     makers: array(MakerAssignment).readonly().default([]),
 }).readonly()
 
