@@ -12,13 +12,13 @@ export const MovieRating = number().int().min(0).max(100);
  * This should contains all data saved in server
  */
 export const Movie = object({
-    year: number().int().optional(),
     id: MovieId,
-    titles: record(string(), string()).readonly().default({}),
-    contents: record(string(), string()).readonly().default({}),
-    externalIds: ExternalIds,
     title: string(),
     originalTitle: string().optional(),
+    titles: record(string(), string()).readonly().default({}),
+    year: number().int().optional(),
+    contents: record(string(), string()).readonly().default({}).describe("Contents in different languages"),
+    externalIds: ExternalIds,
     genres: array(string()).readonly(),
     duration: number().positive().int().describe("Duration in minutes"),
     ratings: record(string(), MovieRating).readonly().describe("Ratings in different sources in percentage").default({}),
@@ -32,8 +32,8 @@ export const Movie = object({
         calculationDate: string().datetime(),
         value: MovieRating.describe("Average rating calculated based on ratings")
     }).readonly().optional(),
-    durations: record(string(), number().int().positive()).readonly().describe("Durations from different sources").default({}),
-    countries: array(Country).readonly().default([]),
+    durations: record(string(), number().int().positive()).readonly().describe("Durations in minutes from different sources").default({}),
+    countries: array(Country).readonly().default([]).describe("Array of countries"),
     posters: array(string().url()).readonly().default([]),
     similar: array(MovieId).readonly().default([]),
     related: array(MovieId).readonly().default([]),

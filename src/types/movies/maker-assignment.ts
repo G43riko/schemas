@@ -1,4 +1,4 @@
-import { object,  string } from "https://deno.land/x/zod@v3.23.8/mod.ts";
+import { object,  string, array } from "https://deno.land/x/zod@v3.23.8/mod.ts";
 import MakerId from "./maker-id.ts";
 import MakerRole from "./maker-role.ts";
 
@@ -9,7 +9,7 @@ import MakerRole from "./maker-role.ts";
  */
 const MakerAssignment = object({
     makerId: MakerId,
-    characterName: string().optional(),
+    characterNames: array(string().optional()).default()[],
     role: MakerRole,
 }).readonly().openapi("MakerAssignment")
 
