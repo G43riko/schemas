@@ -21,7 +21,11 @@ export const Movie = object({
     externalIds: ExternalIds,
     genres: array(string()).readonly(),
     duration: number().positive().int().describe("Duration in minutes"),
-    ratings: record(string(), MovieRating).readonly().describe("Ratings in different sources in percentage").default({}),
+    ratings: record(string(), object({
+        rating: MovieRating,
+        count: number(),
+        date: string().datetime(),
+    })).readonly().describe("Ratings in different sources in percentage").default({}),
     userRatings: record(string(), MovieRating).readonly().describe("User ratings in percentage").default({}),
     calculatedDuration: object({
         calculationDate: string().datetime(),
