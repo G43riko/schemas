@@ -9,7 +9,7 @@ import MakerRole from "./maker-role.ts";
  */
 const MakerAssignment = object({
     makerId: MakerId,
-    characterNames: array(string().optional()).default()[],
+    characterNames: array(string().optional()).default([]),
     role: MakerRole,
 }).readonly().openapi("MakerAssignment")
 

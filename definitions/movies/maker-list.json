@@ -5,6 +5,10 @@
             "type": "string",
             "format": "date-time"
         },
+        "updateDate": {
+            "type": "string",
+            "format": "date-time"
+        },
         "makers": {
             "type": "array",
             "items": {
@@ -17,6 +21,15 @@
         "ownerId": {
             "$ref": "https://g43riko.github.io/schemas/definitions/users/user-id.json"
         },
+        "description": {
+            "type": "string"
+        },
+        "ownerName": {
+            "type": "string"
+        },
+        "movieCount": {
+            "type": "number"
+        },
         "public": {
             "type": "boolean"
         },
@@ -26,6 +39,7 @@
     },
     "required": [
         "creationDate",
+        "updateDate",
         "makers",
         "name",
         "ownerId",

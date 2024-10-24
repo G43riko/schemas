@@ -29,8 +29,12 @@
                     "makerId": {
                         "$ref": "#/components/schemas/MakerId"
                     },
-                    "characterName": {
-                        "type": "string"
+                    "characterNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": []
                     },
                     "role": {
                         "$ref": "#/components/schemas/MakerRole"
@@ -55,6 +59,10 @@
                 "type": "object",
                 "properties": {
                     "creationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updateDate": {
                         "type": "string",
                         "format": "date-time"
                     },
@@ -117,6 +125,15 @@
                     "ownerId": {
                         "$ref": "#/components/schemas/UserId"
                     },
+                    "description": {
+                        "type": "string"
+                    },
+                    "ownerName": {
+                        "type": "string"
+                    },
+                    "movieCount": {
+                        "type": "number"
+                    },
                     "public": {
                         "type": "boolean"
                     },
@@ -126,6 +143,7 @@
                 },
                 "required": [
                     "creationDate",
+                    "updateDate",
                     "makers",
                     "name",
                     "ownerId",
@@ -204,16 +222,23 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "updateDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
                     "movies": {
                         "type": "array",
                         "items": {
                             "type": "object",
                             "properties": {
-                                "year": {
-                                    "type": "integer"
-                                },
                                 "id": {
                                     "$ref": "#/components/schemas/MovieId"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "originalTitle": {
+                                    "type": "string"
                                 },
                                 "titles": {
                                     "type": "object",
@@ -222,21 +247,19 @@
                                     },
                                     "default": {}
                                 },
+                                "year": {
+                                    "type": "integer"
+                                },
                                 "contents": {
                                     "type": "object",
                                     "additionalProperties": {
                                         "type": "string"
                                     },
-                                    "default": {}
+                                    "default": {},
+                                    "description": "Contents in different languages"
                                 },
                                 "externalIds": {
                                     "$ref": "#/components/schemas/ExternalIds"
-                                },
-                                "title": {
-                                    "type": "string"
-                                },
-                                "originalTitle": {
-                                    "type": "string"
                                 },
                                 "genres": {
                                     "type": "array",
@@ -253,9 +276,26 @@
                                 "ratings": {
                                     "type": "object",
                                     "additionalProperties": {
-                                        "type": "integer",
-                                        "minimum": 0,
-                                        "maximum": 100
+                                        "type": "object",
+                                        "properties": {
+                                            "rating": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximum": 100
+                                            },
+                                            "count": {
+                                                "type": "number"
+                                            },
+                                            "date": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            }
+                                        },
+                                        "required": [
+                                            "rating",
+                                            "count",
+                                            "date"
+                                        ]
                                     },
                                     "default": {},
                                     "description": "Ratings in different sources in percentage"
@@ -320,14 +360,15 @@
                                         "exclusiveMinimum": true
                                     },
                                     "default": {},
-                                    "description": "Durations from different sources"
+                                    "description": "Durations in minutes from different sources"
                                 },
                                 "countries": {
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/components/schemas/Country"
                                     },
-                                    "default": []
+                                    "default": [],
+                                    "description": "Array of countries"
                                 },
                                 "posters": {
                                     "type": "array",
@@ -380,6 +421,15 @@
                     "ownerId": {
                         "$ref": "#/components/schemas/UserId"
                     },
+                    "description": {
+                        "type": "string"
+                    },
+                    "ownerName": {
+                        "type": "string"
+                    },
+                    "movieCount": {
+                        "type": "number"
+                    },
                     "public": {
                         "type": "boolean"
                     },
@@ -389,6 +439,7 @@
                 },
                 "required": [
                     "creationDate",
+                    "updateDate",
                     "movies",
                     "name",
                     "ownerId",
@@ -399,11 +450,14 @@
             "Movie": {
                 "type": "object",
                 "properties": {
-                    "year": {
-                        "type": "integer"
-                    },
                     "id": {
                         "$ref": "#/components/schemas/MovieId"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "originalTitle": {
+                        "type": "string"
                     },
                     "titles": {
                         "type": "object",
@@ -412,21 +466,19 @@
                         },
                         "default": {}
                     },
+                    "year": {
+                        "type": "integer"
+                    },
                     "contents": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "default": {}
+                        "default": {},
+                        "description": "Contents in different languages"
                     },
                     "externalIds": {
                         "$ref": "#/components/schemas/ExternalIds"
-                    },
-                    "title": {
-                        "type": "string"
-                    },
-                    "originalTitle": {
-                        "type": "string"
                     },
                     "genres": {
                         "type": "array",
@@ -443,9 +495,26 @@
                     "ratings": {
                         "type": "object",
                         "additionalProperties": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 100
+                            "type": "object",
+                            "properties": {
+                                "rating": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 100
+                                },
+                                "count": {
+                                    "type": "number"
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            },
+                            "required": [
+                                "rating",
+                                "count",
+                                "date"
+                            ]
                         },
                         "default": {},
                         "description": "Ratings in different sources in percentage"
@@ -510,14 +579,15 @@
                             "exclusiveMinimum": true
                         },
                         "default": {},
-                        "description": "Durations from different sources"
+                        "description": "Durations in minutes from different sources"
                     },
                     "countries": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/Country"
                         },
-                        "default": []
+                        "default": [],
+                        "description": "Array of countries"
                     },
                     "posters": {
                         "type": "array",

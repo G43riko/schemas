@@ -1,11 +1,14 @@
 {
     "type": "object",
     "properties": {
-        "year": {
-            "type": "integer"
-        },
         "id": {
             "$ref": "https://g43riko.github.io/schemas/definitions/movies/movie-id.json"
+        },
+        "title": {
+            "type": "string"
+        },
+        "originalTitle": {
+            "type": "string"
         },
         "titles": {
             "type": "object",
@@ -14,21 +17,19 @@
             },
             "default": {}
         },
+        "year": {
+            "type": "integer"
+        },
         "contents": {
             "type": "object",
             "additionalProperties": {
                 "type": "string"
             },
-            "default": {}
+            "default": {},
+            "description": "Contents in different languages"
         },
         "externalIds": {
             "$ref": "https://g43riko.github.io/schemas/definitions/movies/external-ids.json"
-        },
-        "title": {
-            "type": "string"
-        },
-        "originalTitle": {
-            "type": "string"
         },
         "genres": {
             "type": "array",
@@ -44,9 +45,27 @@
         "ratings": {
             "type": "object",
             "additionalProperties": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 100
+                "type": "object",
+                "properties": {
+                    "rating": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 100
+                    },
+                    "count": {
+                        "type": "number"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "rating",
+                    "count",
+                    "date"
+                ],
+                "additionalProperties": false
             },
             "description": "Ratings in different sources in percentage",
             "default": {}
@@ -54,7 +73,7 @@
         "userRatings": {
             "type": "object",
             "additionalProperties": {
-                "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/ratings/additionalProperties"
+                "$ref": "https://g43riko.github.io/schemas/definitions/movie/properties/ratings/additionalProperties/properties/rating"
             },
             "description": "User ratings in percentage",
             "default": {}
@@ -108,7 +127,7 @@
                 "type": "integer",
                 "exclusiveMinimum": 0
             },
-            "description": "Durations from different sources",
+            "description": "Durations in minutes from different sources",
             "default": {}
         },
         "countries": {
@@ -116,7 +135,8 @@
             "items": {
                 "$ref": "https://g43riko.github.io/schemas/definitions/country.json"
             },
-            "default": []
+            "default": [],
+            "description": "Array of countries"
         },
         "posters": {
             "type": "array",

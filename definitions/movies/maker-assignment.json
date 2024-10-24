@@ -4,8 +4,19 @@
         "makerId": {
             "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-id.json"
         },
-        "characterName": {
-            "type": "string"
+        "characterNames": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "not": {}
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "default": []
         },
         "role": {
             "$ref": "https://g43riko.github.io/schemas/definitions/movies/maker-role.json"
