@@ -50,7 +50,8 @@
                     "rating": {
                         "type": "integer",
                         "minimum": 0,
-                        "maximum": 100
+                        "maximum": 100,
+                        "description": "Value in percentage"
                     },
                     "count": {
                         "type": "number"
@@ -99,7 +100,7 @@
         },
         "classification": {
             "type": "string",
-            "description": "PEGI classification"
+            "description": "PEGI classification. Available values are 'PEGI 3', 'PEGI 7', 'PEGI 12', 'PEGI 16', 'PEGI 18'"
         },
         "calculatedRating": {
             "type": "object",

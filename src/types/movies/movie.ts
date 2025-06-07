@@ -4,7 +4,10 @@ import MovieId from "./movie-id.ts";
 import MakerAssignment from "./maker-assignment.ts";
 import ExternalIds from "./external-ids.ts";
 import MovieTag from "./movie-tag.ts";
-export const MovieRating = number().int().min(0).max(100);
+
+export const MovieRating = number().int().min(0).max(100).describe("Value in percentage");
+
+const UserId = string();
 /**
  * @see https://hackmd.io/LtxhCZgAR92vmgmCceCfnA
  * @see https://studio.apicur.io/apis/80194/editor
@@ -16,7 +19,7 @@ export const Movie = object({
     title: string(),
     originalTitle: string().optional(),
     titles: record(string(), string()).readonly().default({}),
-    year: number().int().optional(),
+    year: number().int().optional().meta({examples: [2021]}),
     contents: record(string(), string()).readonly().default({}).describe("Contents in different languages"),
     externalIds: ExternalIds,
     genres: array(string()).readonly(),
@@ -26,12 +29,12 @@ export const Movie = object({
         count: number(),
         date: string().datetime(),
     })).readonly().describe("Ratings in different sources in percentage").default({}),
-    userRatings: record(string(), MovieRating).readonly().describe("User ratings in percentage").default({}),
+    userRatings: record(UserId, MovieRating).readonly().describe("User ratings in percentage").default({}),
     calculatedDuration: object({
         calculationDate: string().datetime(),
-        value: number().int().positive().describe("Average duration calculated based on durations")
+        value: number().int().positive().describe("Estimated average duration calculated from multiple sources")
     }).readonly().optional(),
-    classification: string().optional().describe("PEGI classification"),
+    classification: string().optional().describe("PEGI classification. Available values are 'PEGI 3', 'PEGI 7', 'PEGI 12', 'PEGI 16', 'PEGI 18'"),
     calculatedRating: object({
         calculationDate: string().datetime(),
         value: MovieRating.describe("Average rating calculated based on ratings")

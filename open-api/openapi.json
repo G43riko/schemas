@@ -10,6 +10,38 @@
             "Country": {
                 "type": "string"
             },
+            "UserId": {
+                "type": "string"
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/UserId"
+                    },
+                    "userName": {
+                        "type": "string"
+                    },
+                    "creationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "id",
+                    "userName",
+                    "creationDate"
+                ]
+            },
+            "MakerRole": {
+                "type": "string"
+            },
+            "MovieTag": {
+                "type": "string"
+            },
+            "MakerId": {
+                "type": "string"
+            },
             "ExternalIds": {
                 "type": "object",
                 "additionalProperties": {
@@ -17,11 +49,55 @@
                 },
                 "default": {}
             },
-            "MakerId": {
-                "type": "string"
-            },
-            "MakerRole": {
-                "type": "string"
+            "Maker": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/MakerId"
+                    },
+                    "externalIds": {
+                        "$ref": "#/components/schemas/ExternalIds"
+                    },
+                    "bibliography": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "birthplace": {
+                        "type": "string"
+                    },
+                    "fromCountry": {
+                        "$ref": "#/components/schemas/Country"
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "description": "Year of full birdhday in format YYYY-MM-DD"
+                    },
+                    "photos": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "default": []
+                    }
+                },
+                "required": [
+                    "id",
+                    "fullName",
+                    "firstName",
+                    "lastName"
+                ]
             },
             "MakerAssignment": {
                 "type": "object",
@@ -45,15 +121,23 @@
                     "role"
                 ]
             },
+            "MovieId": {
+                "type": "string"
+            },
+            "MovieListType": {
+                "type": "string",
+                "enum": [
+                    "WATCHED",
+                    "FAVOURITES",
+                    "CUSTOM"
+                ]
+            },
             "MakerListType": {
                 "type": "string",
                 "enum": [
                     "FAVOURITES",
                     "CUSTOM"
                 ]
-            },
-            "UserId": {
-                "type": "string"
             },
             "MakerList": {
                 "type": "object",
@@ -151,70 +235,6 @@
                     "type"
                 ]
             },
-            "Maker": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "$ref": "#/components/schemas/MakerId"
-                    },
-                    "externalIds": {
-                        "$ref": "#/components/schemas/ExternalIds"
-                    },
-                    "bibliography": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        }
-                    },
-                    "fullName": {
-                        "type": "string"
-                    },
-                    "firstName": {
-                        "type": "string"
-                    },
-                    "lastName": {
-                        "type": "string"
-                    },
-                    "birthplace": {
-                        "type": "string"
-                    },
-                    "fromCountry": {
-                        "$ref": "#/components/schemas/Country"
-                    },
-                    "birthday": {
-                        "type": "string",
-                        "description": "Year of full birdhday in format YYYY-MM-DD"
-                    },
-                    "photos": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "default": []
-                    }
-                },
-                "required": [
-                    "id",
-                    "fullName",
-                    "firstName",
-                    "lastName"
-                ]
-            },
-            "MovieId": {
-                "type": "string"
-            },
-            "MovieListType": {
-                "type": "string",
-                "enum": [
-                    "WATCHED",
-                    "FAVOURITES",
-                    "CUSTOM"
-                ]
-            },
-            "MovieTag": {
-                "type": "string"
-            },
             "MovieList": {
                 "type": "object",
                 "properties": {
@@ -281,7 +301,8 @@
                                             "rating": {
                                                 "type": "integer",
                                                 "minimum": 0,
-                                                "maximum": 100
+                                                "maximum": 100,
+                                                "description": "Value in percentage"
                                             },
                                             "count": {
                                                 "type": "number"
@@ -305,7 +326,8 @@
                                     "additionalProperties": {
                                         "type": "integer",
                                         "minimum": 0,
-                                        "maximum": 100
+                                        "maximum": 100,
+                                        "description": "Value in percentage"
                                     },
                                     "default": {},
                                     "description": "User ratings in percentage"
@@ -331,7 +353,7 @@
                                 },
                                 "classification": {
                                     "type": "string",
-                                    "description": "PEGI classification"
+                                    "description": "PEGI classification. Available values are 'PEGI 3', 'PEGI 7', 'PEGI 12', 'PEGI 16', 'PEGI 18'"
                                 },
                                 "calculatedRating": {
                                     "type": "object",
@@ -500,7 +522,8 @@
                                 "rating": {
                                     "type": "integer",
                                     "minimum": 0,
-                                    "maximum": 100
+                                    "maximum": 100,
+                                    "description": "Value in percentage"
                                 },
                                 "count": {
                                     "type": "number"
@@ -524,7 +547,8 @@
                         "additionalProperties": {
                             "type": "integer",
                             "minimum": 0,
-                            "maximum": 100
+                            "maximum": 100,
+                            "description": "Value in percentage"
                         },
                         "default": {},
                         "description": "User ratings in percentage"
@@ -550,7 +574,7 @@
                     },
                     "classification": {
                         "type": "string",
-                        "description": "PEGI classification"
+                        "description": "PEGI classification. Available values are 'PEGI 3', 'PEGI 7', 'PEGI 12', 'PEGI 16', 'PEGI 18'"
                     },
                     "calculatedRating": {
                         "type": "object",
@@ -631,26 +655,6 @@
                     "title",
                     "genres",
                     "duration"
-                ]
-            },
-            "User": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "$ref": "#/components/schemas/UserId"
-                    },
-                    "userName": {
-                        "type": "string"
-                    },
-                    "creationDate": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "required": [
-                    "id",
-                    "userName",
-                    "creationDate"
                 ]
             }
         },
