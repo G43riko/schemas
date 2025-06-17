@@ -17,7 +17,10 @@
 | Restaurants  | [here](https://g43riko.github.io/schemas/restaurants.schema.json)  |
 
 ## TODO
+### Person
+  - make compatible with https://schema.org/Person
 ### Movie
+  - make compatible with https://schema.org/Movie
   - change title to key map of titles in different languages
   - add ratings to key map of ratings on different platforms
   - add type movie|tvSeries...
